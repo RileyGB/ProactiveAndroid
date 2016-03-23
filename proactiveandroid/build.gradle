@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'proactiveandroid'
+
+    publishedGroupId = 'com.SearingMedia.proactiveandroid'
+    libraryName = 'ProactiveAndroid'
+    artifact = 'proactiveandroid'
+
+    libraryDescription = 'A fork of ActiveAndroid which exposes more functionality'
+
+    siteUrl = 'https://github.com/RileyGB/ProactiveAndroid'
+    gitUrl = 'https://github.com/RileyGB/ProactiveAndroid.git'
+
+    libraryVersion = '0.1'
+
+    developerId = 'rackerman'
+    developerName = 'Riley Ackerman'
+    developerEmail = 'r.ackerman@searingmedia.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 23
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:23.2.1'
+}
+
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
