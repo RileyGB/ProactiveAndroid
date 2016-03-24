@@ -19,6 +19,7 @@ package com.SearingMedia.proactiveandroid;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Parcel;
 
 import com.SearingMedia.proactiveandroid.content.ContentProvider;
 import com.SearingMedia.proactiveandroid.query.Delete;
@@ -55,16 +56,19 @@ public abstract class Model {
         idName = tableInfo.getIdName();
     }
 
+    public Model(Parcel in) {
+        tableInfo = Cache.getTableInfo(getClass());
+        idName = tableInfo.getIdName();
+
+        id = in.readLong();
+    }
+
 	//////////////////////////////////////////////////////////////////////////////////////
 	// PUBLIC METHODS
 	//////////////////////////////////////////////////////////////////////////////////////
 
 	public final Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
 	public final void delete() {
@@ -292,6 +296,10 @@ public abstract class Model {
 	protected final <T extends Model> List<T> getMany(Class<T> type, String foreignKey) {
 		return new Select().from(type).where(Cache.getTableName(type) + "." + foreignKey + "=?", getId()).execute();
 	}
+
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(getId());
+    }
 
 	//////////////////////////////////////////////////////////////////////////////////////
 	// OVERRIDEN METHODS
