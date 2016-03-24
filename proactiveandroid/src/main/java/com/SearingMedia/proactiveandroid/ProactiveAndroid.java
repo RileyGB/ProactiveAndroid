@@ -30,6 +30,15 @@ public final class ProactiveAndroid {
 		initialize(new Configuration.Builder(context).create());
 	}
 
+    public static void initializeAsync(final Context context) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initialize(new Configuration.Builder(context).create());
+            }
+        }).start();
+    }
+
 	public static void initialize(Configuration configuration) {
 		initialize(configuration, false);
 	}
