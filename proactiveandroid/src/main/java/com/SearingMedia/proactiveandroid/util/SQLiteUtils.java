@@ -27,12 +27,10 @@ import com.SearingMedia.proactiveandroid.annotation.Column;
 import com.SearingMedia.proactiveandroid.annotation.Column.ConflictAction;
 import com.SearingMedia.proactiveandroid.serializer.TypeSerializer;
 
-import java.lang.Long;
-import java.lang.String;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -159,8 +157,8 @@ public final class SQLiteUtils {
 		final String name = tableInfo.getColumnName(field);
 		final Column column = field.getAnnotation(Column.class);
 
-        if (field.getName().equals("mId")) {
-            return;
+		if (field.getName().equals("id")) {
+			return;
         }
 
 		String[] groups = column.uniqueGroups();
@@ -211,8 +209,8 @@ public final class SQLiteUtils {
 		final String name = tableInfo.getColumnName(field);
 		final Column column = field.getAnnotation(Column.class);
 
-        if (field.getName().equals("mId")) {
-            return;
+		if (field.getName().equals("id")) {
+			return;
         }
 
 		if (column.index()) {
