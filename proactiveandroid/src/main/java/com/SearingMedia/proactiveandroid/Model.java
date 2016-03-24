@@ -20,6 +20,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Parcel;
+import android.support.annotation.CallSuper;
 
 import com.SearingMedia.proactiveandroid.content.ContentProvider;
 import com.SearingMedia.proactiveandroid.query.Delete;
@@ -297,6 +298,7 @@ public abstract class Model {
 		return new Select().from(type).where(Cache.getTableName(type) + "." + foreignKey + "=?", getId()).execute();
 	}
 
+    @CallSuper
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(getId());
     }
