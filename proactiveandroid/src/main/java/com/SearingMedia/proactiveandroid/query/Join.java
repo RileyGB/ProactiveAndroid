@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import com.SearingMedia.proactiveandroid.Cache;
 import com.SearingMedia.proactiveandroid.Model;
 
-public final class Join implements com.proactiveandroid.query.Sqlable {
+public final class Join implements Sqlable {
 	static enum JoinType {
 		LEFT, OUTER, INNER, CROSS
 	}

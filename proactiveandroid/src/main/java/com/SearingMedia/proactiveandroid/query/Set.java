@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public final class Set implements com.proactiveandroid.query.Sqlable {
-	private com.proactiveandroid.query.Update mUpdate;
+public final class Set implements Sqlable {
+	private Update mUpdate;
 
 	private String mSet;
 	private String mWhere;
@@ -31,7 +31,7 @@ public final class Set implements com.proactiveandroid.query.Sqlable {
 	private List<Object> mSetArguments;
 	private List<Object> mWhereArguments;
 
-	public Set(com.proactiveandroid.query.Update queryBase, String set) {
+	public Set(Update queryBase, String set) {
 		mUpdate = queryBase;
 		mSet = set;
 
@@ -39,7 +39,7 @@ public final class Set implements com.proactiveandroid.query.Sqlable {
 		mWhereArguments = new ArrayList<Object>();
 	}
 
-	public Set(com.proactiveandroid.query.Update queryBase, String set, Object... args) {
+	public Set(Update queryBase, String set, Object... args) {
 		mUpdate = queryBase;
 		mSet = set;
 

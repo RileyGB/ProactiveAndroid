@@ -20,7 +20,7 @@ import android.text.TextUtils;
 
 import com.SearingMedia.proactiveandroid.Model;
 
-public final class Select implements com.proactiveandroid.query.Sqlable {
+public final class Select implements Sqlable {
 	private String[] mColumns;
 	private boolean mDistinct = false;
 	private boolean mAll = false;

@@ -18,7 +18,7 @@ package com.SearingMedia.proactiveandroid.serializer;
 
 import java.util.Calendar;
 
-public final class CalendarSerializer extends com.proactiveandroid.serializer.TypeSerializer {
+public final class CalendarSerializer extends TypeSerializer {
 	public Class<?> getDeserializedType() {
 		return Calendar.class;
 	}

@@ -44,7 +44,7 @@ final class ModelInfo {
 	// PRIVATE METHODS
 	//////////////////////////////////////////////////////////////////////////////////////
 
-	private Map<Class<? extends Model>, com.proactiveandroid.TableInfo> mTableInfos = new HashMap<Class<? extends Model>, com.proactiveandroid.TableInfo>();
+	private Map<Class<? extends Model>, TableInfo> mTableInfos = new HashMap<Class<? extends Model>, TableInfo>();
 	private Map<Class<?>, TypeSerializer> mTypeSerializers = new HashMap<Class<?>, TypeSerializer>() {
 		{
 			put(Calendar.class, new CalendarSerializer());
@@ -75,11 +75,11 @@ final class ModelInfo {
 	// PUBLIC METHODS
 	//////////////////////////////////////////////////////////////////////////////////////
 
-	public Collection<com.proactiveandroid.TableInfo> getTableInfos() {
+	public Collection<TableInfo> getTableInfos() {
 		return mTableInfos.values();
 	}
 
-	public com.proactiveandroid.TableInfo getTableInfo(Class<? extends Model> type) {
+	public TableInfo getTableInfo(Class<? extends Model> type) {
 		return mTableInfos.get(type);
 	}
 
@@ -99,7 +99,7 @@ final class ModelInfo {
 		final List<Class<? extends Model>> models = configuration.getModelClasses();
 		if (models != null) {
 			for (Class<? extends Model> model : models) {
-				mTableInfos.put(model, new com.proactiveandroid.TableInfo(model));
+				mTableInfos.put(model, new TableInfo(model));
 			}
 		}
 
@@ -189,7 +189,7 @@ final class ModelInfo {
 				if (ReflectionUtils.isModel(discoveredClass)) {
 					@SuppressWarnings("unchecked")
 					Class<? extends Model> modelClass = (Class<? extends Model>) discoveredClass;
-					mTableInfos.put(modelClass, new com.proactiveandroid.TableInfo(modelClass));
+					mTableInfos.put(modelClass, new TableInfo(modelClass));
 				}
 				else if (ReflectionUtils.isTypeSerializer(discoveredClass)) {
 					TypeSerializer instance = (TypeSerializer) discoveredClass.newInstance();

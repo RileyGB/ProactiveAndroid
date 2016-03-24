@@ -18,12 +18,12 @@ package com.SearingMedia.proactiveandroid.query;
 
 import com.SearingMedia.proactiveandroid.Model;
 
-public final class Delete implements com.proactiveandroid.query.Sqlable {
+public final class Delete implements Sqlable {
 	public Delete() {
 	}
 
-	public com.proactiveandroid.query.From from(Class<? extends Model> table) {
-		return new com.proactiveandroid.query.From(table, this);
+	public From from(Class<? extends Model> table) {
+		return new From(table, this);
 	}
 
 	@Override

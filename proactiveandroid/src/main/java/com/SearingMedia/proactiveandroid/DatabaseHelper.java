@@ -135,7 +135,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 	private void executeCreateIndex(SQLiteDatabase db) {
 		db.beginTransaction();
 		try {
-			for (com.proactiveandroid.TableInfo tableInfo : Cache.getTableInfos()) {
+			for (TableInfo tableInfo : Cache.getTableInfos()) {
 				String[] definitions = SQLiteUtils.createIndexDefinition(tableInfo);
 
 				for (String definition : definitions) {
@@ -152,7 +152,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 	private void executeCreate(SQLiteDatabase db) {
 		db.beginTransaction();
 		try {
-			for (com.proactiveandroid.TableInfo tableInfo : Cache.getTableInfos()) {
+			for (TableInfo tableInfo : Cache.getTableInfos()) {
 				db.execSQL(SQLiteUtils.createTableDefinition(tableInfo));
 			}
 			db.setTransactionSuccessful();

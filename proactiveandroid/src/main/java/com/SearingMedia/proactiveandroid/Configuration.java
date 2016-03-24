@@ -39,7 +39,7 @@ public class Configuration {
 	private String mDatabaseName;
 	private int mDatabaseVersion;
 	private String mSqlParser;
-	private List<Class<? extends com.proactiveandroid.Model>> mModelClasses;
+	private List<Class<? extends Model>> mModelClasses;
 	private List<Class<? extends TypeSerializer>> mTypeSerializers;
 	private int mCacheSize;
 
@@ -71,7 +71,7 @@ public class Configuration {
 	    return mSqlParser;
 	}
 
-	public List<Class<? extends com.proactiveandroid.Model>> getModelClasses() {
+	public List<Class<? extends Model>> getModelClasses() {
 		return mModelClasses;
 	}
 
@@ -116,7 +116,7 @@ public class Configuration {
 		private String mDatabaseName;
 		private Integer mDatabaseVersion;
 		private String mSqlParser;
-		private List<Class<? extends com.proactiveandroid.Model>> mModelClasses;
+		private List<Class<? extends Model>> mModelClasses;
 		private List<Class<? extends TypeSerializer>> mTypeSerializers;
 
 		//////////////////////////////////////////////////////////////////////////////////////
@@ -152,25 +152,25 @@ public class Configuration {
 		    return this;
 		}
 
-		public Builder addModelClass(Class<? extends com.proactiveandroid.Model> modelClass) {
+		public Builder addModelClass(Class<? extends Model> modelClass) {
 			if (mModelClasses == null) {
-				mModelClasses = new ArrayList<Class<? extends com.proactiveandroid.Model>>();
+				mModelClasses = new ArrayList<Class<? extends Model>>();
 			}
 
 			mModelClasses.add(modelClass);
 			return this;
 		}
 
-		public Builder addModelClasses(Class<? extends com.proactiveandroid.Model>... modelClasses) {
+		public Builder addModelClasses(Class<? extends Model>... modelClasses) {
 			if (mModelClasses == null) {
-				mModelClasses = new ArrayList<Class<? extends com.proactiveandroid.Model>>();
+				mModelClasses = new ArrayList<Class<? extends Model>>();
 			}
 
 			mModelClasses.addAll(Arrays.asList(modelClasses));
 			return this;
 		}
 
-		public Builder setModelClasses(Class<? extends com.proactiveandroid.Model>... modelClasses) {
+		public Builder setModelClasses(Class<? extends Model>... modelClasses) {
 			mModelClasses = Arrays.asList(modelClasses);
 			return this;
 		}
@@ -278,8 +278,8 @@ public class Configuration {
 		    return mode;
 		}
 
-		private List<Class<? extends com.proactiveandroid.Model>> loadModelList(String[] models) {
-			final List<Class<? extends com.proactiveandroid.Model>> modelClasses = new ArrayList<Class<? extends com.proactiveandroid.Model>>();
+		private List<Class<? extends Model>> loadModelList(String[] models) {
+			final List<Class<? extends Model>> modelClasses = new ArrayList<Class<? extends Model>>();
 			final ClassLoader classLoader = mContext.getClass().getClassLoader();
 			for (String model : models) {
 				try {

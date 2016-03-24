@@ -44,7 +44,7 @@ public abstract class Model {
 
 	private Long mId = null;
 
-	private final com.proactiveandroid.TableInfo mTableInfo;
+	private final TableInfo mTableInfo;
 	private final String idName;
 	//////////////////////////////////////////////////////////////////////////////////////
 	// CONSTRUCTORS
@@ -166,12 +166,12 @@ public abstract class Model {
 	// Convenience methods
 
 	public static void delete(Class<? extends Model> type, long id) {
-		com.proactiveandroid.TableInfo tableInfo = Cache.getTableInfo(type);
+		TableInfo tableInfo = Cache.getTableInfo(type);
 		new Delete().from(type).where(tableInfo.getIdName()+"=?", id).execute();
 	}
 
 	public static <T extends Model> T load(Class<T> type, long id) {
-		com.proactiveandroid.TableInfo tableInfo = Cache.getTableInfo(type);
+		TableInfo tableInfo = Cache.getTableInfo(type);
 		return (T) new Select().from(type).where(tableInfo.getIdName()+"=?", id).executeSingle();
 	}
 

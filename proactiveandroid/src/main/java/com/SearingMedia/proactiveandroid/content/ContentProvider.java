@@ -1,19 +1,19 @@
 package com.SearingMedia.proactiveandroid.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.SparseArray;
 
-import com.SearingMedia.proactiveandroid.ProactiveAndroid;
 import com.SearingMedia.proactiveandroid.Cache;
 import com.SearingMedia.proactiveandroid.Configuration;
 import com.SearingMedia.proactiveandroid.Model;
+import com.SearingMedia.proactiveandroid.ProactiveAndroid;
 import com.SearingMedia.proactiveandroid.TableInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContentProvider extends android.content.ContentProvider {
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ public class ContentProvider extends android.content.ContentProvider {
 		ProactiveAndroid.initialize(getConfiguration());
 		sAuthority = getAuthority();
 
-		final List<TableInfo> tableInfos = new ArrayList<TableInfo>(Cache.getTableInfos());
+		final List<TableInfo> tableInfos = new ArrayList<TableInfo>();
 		final int size = tableInfos.size();
 		for (int i = 0; i < size; i++) {
 			final TableInfo tableInfo = tableInfos.get(i);

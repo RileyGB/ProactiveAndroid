@@ -28,8 +28,8 @@ import com.SearingMedia.proactiveandroid.util.SQLiteUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class From implements com.proactiveandroid.query.Sqlable {
-	private com.proactiveandroid.query.Sqlable mQueryBase;
+public final class From implements Sqlable {
+	private Sqlable mQueryBase;
 
 	private Class<? extends Model> mType;
 	private String mAlias;
@@ -43,7 +43,7 @@ public final class From implements com.proactiveandroid.query.Sqlable {
 
 	private List<Object> mArguments;
 
-	public From(Class<? extends Model> table, com.proactiveandroid.query.Sqlable queryBase) {
+	public From(Class<? extends Model> table, Sqlable queryBase) {
 		mType = table;
 		mJoins = new ArrayList<Join>();
 		mQueryBase = queryBase;
@@ -294,7 +294,7 @@ public final class From implements com.proactiveandroid.query.Sqlable {
     }
 
 	public <T extends Model> List<T> execute() {
-		if (mQueryBase instanceof com.proactiveandroid.query.Select) {
+		if (mQueryBase instanceof Select) {
 			return SQLiteUtils.rawQuery(mType, toSql(), getArguments());
 			
 		} else {
@@ -306,7 +306,7 @@ public final class From implements com.proactiveandroid.query.Sqlable {
 	}
 
 	public <T extends Model> T executeSingle() {
-		if (mQueryBase instanceof com.proactiveandroid.query.Select) {
+		if (mQueryBase instanceof Select) {
 			limit(1);
 			return (T) SQLiteUtils.rawQuerySingle(mType, toSql(), getArguments());
 			

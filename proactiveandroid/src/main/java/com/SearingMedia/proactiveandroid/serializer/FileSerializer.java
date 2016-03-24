@@ -19,7 +19,7 @@ import java.io.File;
  */
 
 
-public final class FileSerializer extends com.proactiveandroid.serializer.TypeSerializer {
+public final class FileSerializer extends TypeSerializer {
 	public Class<?> getDeserializedType() {
 		return File.class;
 	}

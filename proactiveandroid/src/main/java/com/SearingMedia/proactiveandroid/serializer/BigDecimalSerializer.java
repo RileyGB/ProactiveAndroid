@@ -2,7 +2,7 @@ package com.SearingMedia.proactiveandroid.serializer;
 
 import java.math.BigDecimal;
 
-public final class BigDecimalSerializer extends com.proactiveandroid.serializer.TypeSerializer {
+public final class BigDecimalSerializer extends TypeSerializer {
 	public Class<?> getDeserializedType() {
 		return BigDecimal.class;
 	}
