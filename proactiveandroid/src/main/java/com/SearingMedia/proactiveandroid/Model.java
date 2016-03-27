@@ -69,6 +69,10 @@ public abstract class Model {
 	//////////////////////////////////////////////////////////////////////////////////////
 
 	public final Long getId() {
+        if (id == null) {
+            return -1L;
+        }
+
         return id;
     }
 
