@@ -16,14 +16,6 @@ package com.SearingMedia.proactiveandroid.util;
  * limitations under the License.
  */
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -31,6 +23,14 @@ import android.content.pm.PackageManager;
 import com.SearingMedia.proactiveandroid.Model;
 import com.SearingMedia.proactiveandroid.annotation.Column;
 import com.SearingMedia.proactiveandroid.serializer.TypeSerializer;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public final class ReflectionUtils {
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ public final class ReflectionUtils {
 			}
 		}
 		catch (Exception e) {
-			Log.w("Couldn't find meta-data: " + name);
+			ProactiveLog.w("Couldn't find meta-data: " + name);
 		}
 
 		return null;

@@ -42,7 +42,7 @@ public class IOUtils {
         try {
             closeable.close();
         } catch (final IOException e) {
-            Log.e("Couldn't close closeable.", e);
+            ProactiveLog.e("Couldn't close closeable.", e);
         }
     }
 
@@ -63,7 +63,7 @@ public class IOUtils {
         try {
             cursor.close();
         } catch (final Exception e) {
-            Log.e("Couldn't close cursor.", e);
+            ProactiveLog.e("Couldn't close cursor.", e);
         }
     }
 }

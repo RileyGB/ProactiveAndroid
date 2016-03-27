@@ -23,7 +23,7 @@ import com.SearingMedia.proactiveandroid.serializer.FileSerializer;
 import com.SearingMedia.proactiveandroid.serializer.SqlDateSerializer;
 import com.SearingMedia.proactiveandroid.serializer.TypeSerializer;
 import com.SearingMedia.proactiveandroid.serializer.UtilDateSerializer;
-import com.SearingMedia.proactiveandroid.util.Log;
+import com.SearingMedia.proactiveandroid.util.ProactiveLog;
 import com.SearingMedia.proactiveandroid.util.ReflectionUtils;
 
 import java.io.File;
@@ -64,11 +64,11 @@ final class ModelInfo {
 				scanForModel(configuration.getContext());
 			}
 			catch (IOException e) {
-				Log.e("Couldn't open source path.", e);
+				ProactiveLog.e("Couldn't open source path.", e);
 			}
 		}
 
-		Log.i("ModelInfo loaded.");
+		ProactiveLog.i("ModelInfo loaded.");
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -111,10 +111,10 @@ final class ModelInfo {
 					mTypeSerializers.put(instance.getDeserializedType(), instance);
 				}
 				catch (InstantiationException e) {
-					Log.e("Couldn't instantiate TypeSerializer.", e);
+					ProactiveLog.e("Couldn't instantiate TypeSerializer.", e);
 				}
 				catch (IllegalAccessException e) {
-					Log.e("IllegalAccessException", e);
+					ProactiveLog.e("IllegalAccessException", e);
 				}
 			}
 		}
@@ -197,13 +197,13 @@ final class ModelInfo {
 				}
 			}
 			catch (ClassNotFoundException e) {
-				Log.e("Couldn't create class.", e);
+				ProactiveLog.e("Couldn't create class.", e);
 			}
 			catch (InstantiationException e) {
-				Log.e("Couldn't instantiate TypeSerializer.", e);
+				ProactiveLog.e("Couldn't instantiate TypeSerializer.", e);
 			}
 			catch (IllegalAccessException e) {
-				Log.e("IllegalAccessException", e);
+				ProactiveLog.e("IllegalAccessException", e);
 			}
 		}
 	}

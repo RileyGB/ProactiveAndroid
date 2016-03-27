@@ -26,7 +26,7 @@ import com.SearingMedia.proactiveandroid.content.ContentProvider;
 import com.SearingMedia.proactiveandroid.query.Delete;
 import com.SearingMedia.proactiveandroid.query.Select;
 import com.SearingMedia.proactiveandroid.serializer.TypeSerializer;
-import com.SearingMedia.proactiveandroid.util.Log;
+import com.SearingMedia.proactiveandroid.util.ProactiveLog;
 import com.SearingMedia.proactiveandroid.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
@@ -103,7 +103,7 @@ public abstract class Model {
 							fieldType = value.getClass();
 							// check that the serializer returned what it promised
 							if (!fieldType.equals(typeSerializer.getSerializedType())) {
-								Log.w(String.format("TypeSerializer returned wrong type: expected a %s but got a %s",
+								ProactiveLog.w(String.format("TypeSerializer returned wrong type: expected a %s but got a %s",
 										typeSerializer.getSerializedType(), fieldType));
 							}
 						}
@@ -153,10 +153,10 @@ public abstract class Model {
 				}
 			}
 			catch (IllegalArgumentException e) {
-				Log.e(e.getClass().getName(), e);
+				ProactiveLog.e(e.getClass().getName(), e);
 			}
 			catch (IllegalAccessException e) {
-				Log.e(e.getClass().getName(), e);
+				ProactiveLog.e(e.getClass().getName(), e);
 			}
 		}
 
@@ -275,13 +275,13 @@ public abstract class Model {
 				}
 			}
 			catch (IllegalArgumentException e) {
-				Log.e(e.getClass().getName(), e);
+				ProactiveLog.e(e.getClass().getName(), e);
 			}
 			catch (IllegalAccessException e) {
-				Log.e(e.getClass().getName(), e);
+				ProactiveLog.e(e.getClass().getName(), e);
 			}
 			catch (SecurityException e) {
-				Log.e(e.getClass().getName(), e);
+				ProactiveLog.e(e.getClass().getName(), e);
 			}
 		}
 

@@ -22,7 +22,7 @@ import com.SearingMedia.proactiveandroid.Cache;
 import com.SearingMedia.proactiveandroid.Model;
 import com.SearingMedia.proactiveandroid.content.ContentProvider;
 import com.SearingMedia.proactiveandroid.query.Join.JoinType;
-import com.SearingMedia.proactiveandroid.util.Log;
+import com.SearingMedia.proactiveandroid.util.ProactiveLog;
 import com.SearingMedia.proactiveandroid.util.SQLiteUtils;
 
 import java.util.ArrayList;
@@ -235,8 +235,8 @@ public final class From implements Sqlable {
 
         // Don't waste time building the string
         // unless we're going to log it.
-        if (Log.isEnabled()) {
-            Log.v(sqlString + " " + TextUtils.join(",", getArguments()));
+        if (ProactiveLog.isEnabled()) {
+            ProactiveLog.v(sqlString + " " + TextUtils.join(",", getArguments()));
         }
 
         return sqlString;

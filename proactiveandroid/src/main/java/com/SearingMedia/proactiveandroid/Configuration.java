@@ -19,7 +19,7 @@ package com.SearingMedia.proactiveandroid;
 import android.content.Context;
 
 import com.SearingMedia.proactiveandroid.serializer.TypeSerializer;
-import com.SearingMedia.proactiveandroid.util.Log;
+import com.SearingMedia.proactiveandroid.util.ProactiveLog;
 import com.SearingMedia.proactiveandroid.util.ReflectionUtils;
 
 import java.util.ArrayList;
@@ -289,7 +289,7 @@ public class Configuration {
 					}
 				}
 				catch (ClassNotFoundException e) {
-					Log.e("Couldn't create class.", e);
+					ProactiveLog.e("Couldn't create class.", e);
 				}
 			}
 
@@ -307,7 +307,7 @@ public class Configuration {
 					}
 				}
 				catch (ClassNotFoundException e) {
-					Log.e("Couldn't create class.", e);
+					ProactiveLog.e("Couldn't create class.", e);
 				}
 			}
 

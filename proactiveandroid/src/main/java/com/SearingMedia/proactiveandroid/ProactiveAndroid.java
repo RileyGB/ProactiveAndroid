@@ -19,7 +19,7 @@ package com.SearingMedia.proactiveandroid;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.SearingMedia.proactiveandroid.util.Log;
+import com.SearingMedia.proactiveandroid.util.ProactiveLog;
 
 public final class ProactiveAndroid {
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ public final class ProactiveAndroid {
 	}
 
 	public static void setLoggingEnabled(boolean enabled) {
-		Log.setEnabled(enabled);
+		ProactiveLog.setEnabled(enabled);
 	}
 
 	public static SQLiteDatabase getDatabase() {

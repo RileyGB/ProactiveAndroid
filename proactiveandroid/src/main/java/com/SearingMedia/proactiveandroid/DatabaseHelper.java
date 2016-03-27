@@ -22,8 +22,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 
 import com.SearingMedia.proactiveandroid.util.IOUtils;
-import com.SearingMedia.proactiveandroid.util.Log;
 import com.SearingMedia.proactiveandroid.util.NaturalOrderComparator;
+import com.SearingMedia.proactiveandroid.util.ProactiveLog;
 import com.SearingMedia.proactiveandroid.util.SQLiteUtils;
 import com.SearingMedia.proactiveandroid.util.SqlParser;
 
@@ -68,7 +68,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onOpen(SQLiteDatabase db) {
 		executePragmas(db);
-	};
+	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
@@ -117,7 +117,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 			inputStream.close();
 		}
 		catch (IOException e) {
-			Log.e("Failed to open file", e);
+			ProactiveLog.e("Failed to open file", e);
 		}
 	}
 
@@ -128,7 +128,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 	private void executePragmas(SQLiteDatabase db) {
 		if (SQLiteUtils.FOREIGN_KEYS_SUPPORTED) {
 			db.execSQL("PRAGMA foreign_keys=ON;");
-			Log.i("Foreign Keys supported. Enabling foreign key features.");
+			ProactiveLog.i("Foreign Keys supported. Enabling foreign key features.");
 		}
 	}
 
@@ -178,11 +178,11 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 							executeSqlScript(db, file);
 							migrationExecuted = true;
 
-							Log.i(file + " executed succesfully.");
+							ProactiveLog.i(file + " executed succesfully.");
 						}
 					}
 					catch (NumberFormatException e) {
-						Log.w("Skipping invalidly named file: " + file, e);
+						ProactiveLog.w("Skipping invalidly named file: " + file, e);
 					}
 				}
 				db.setTransactionSuccessful();
@@ -192,7 +192,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 			}
 		}
 		catch (IOException e) {
-			Log.e("Failed to execute migrations.", e);
+			ProactiveLog.e("Failed to execute migrations.", e);
 		}
 
 		return migrationExecuted;
@@ -214,7 +214,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 		    }
 
 		} catch (IOException e) {
-			Log.e("Failed to execute " + file, e);
+			ProactiveLog.e("Failed to execute " + file, e);
 
 		} finally {
 		    IOUtils.closeQuietly(stream);
