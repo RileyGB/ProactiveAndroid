@@ -17,12 +17,9 @@ package com.SearingMedia.proactiveandroid.util;
  */
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.SearingMedia.proactiveandroid.BuildConfig;
 import com.SearingMedia.proactiveandroid.Cache;
 import com.SearingMedia.proactiveandroid.Model;
 import com.SearingMedia.proactiveandroid.TableInfo;
@@ -40,8 +37,6 @@ import java.util.Map;
 import java.util.Set;
 
 public final class SQLiteUtils {
-    public static final String TAG = "SQLiteUtils";
-
 	//////////////////////////////////////////////////////////////////////////////////////
 	// ENUMERATIONS
 	//////////////////////////////////////////////////////////////////////////////////////
@@ -106,21 +101,14 @@ public final class SQLiteUtils {
 	}
 
 	public static <T extends Model> List<T> rawQuery(Class<? extends Model> type, String sql, String[] selectionArgs) {
-        try {
-            Cursor cursor = Cache.openDatabase().rawQuery(sql, selectionArgs);
-            List<T> entities = processCursor(type, cursor);
-            cursor.close();
+        Cursor cursor = Cache.openDatabase().rawQuery(sql, selectionArgs);
+        List<T> entities = processCursor(type, cursor);
+        cursor.close();
 
-            return entities;
-        } catch (SQLiteException e) {
-            if (BuildConfig.DEBUG) {
-                Log.e(TAG, "Encountered SQL Lite Exception, returning null", e);
-            }
-            return null;
-        }
+        return entities;
     }
-	  
-	public static int intQuery(final String sql, final String[] selectionArgs) {
+
+    public static int intQuery(final String sql, final String[] selectionArgs) {
         final Cursor cursor = Cache.openDatabase().rawQuery(sql, selectionArgs);
         final int number = processIntCursor(cursor);
         cursor.close();
