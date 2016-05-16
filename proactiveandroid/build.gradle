@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/RileyGB/ProactiveAndroid'
     gitUrl = 'https://github.com/RileyGB/ProactiveAndroid.git'
 
-    libraryVersion = '0.2.8'
+    libraryVersion = '0.2.9'
 
     developerId = 'rackerman'
     developerName = 'Riley Ackerman'
@@ -42,8 +42,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.2.1'
-    compile 'com.android.support:support-annotations:23.2.1'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:support-annotations:23.4.0'
 }
 
 
