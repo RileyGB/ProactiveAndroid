@@ -99,6 +99,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
 
 		// Make sure we have a path to the file
 		dbPath.getParentFile().mkdirs();
+		dbPath.setWritable(true);
 
 		// Try to copy database file
 		try {
