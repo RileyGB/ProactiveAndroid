@@ -204,7 +204,9 @@ final class ModelInfo {
 			}
 			catch (IllegalAccessException e) {
 				ProactiveLog.e("IllegalAccessException", e);
-			}
-		}
+			} catch (VerifyError e) {
+                ProactiveLog.e("VerifyError", e);
+            }
+        }
 	}
 }
