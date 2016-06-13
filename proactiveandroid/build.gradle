@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/RileyGB/ProactiveAndroid'
     gitUrl = 'https://github.com/RileyGB/ProactiveAndroid.git'
 
-    libraryVersion = '0.3.2'
+    libraryVersion = '0.3.3'
 
     developerId = 'rackerman'
     developerName = 'Riley Ackerman'
@@ -27,7 +27,7 @@ ext {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         minSdkVersion 19
