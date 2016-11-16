@@ -84,7 +84,8 @@ public abstract class Model {
                 .notifyChange(ContentProvider.createUri(tableInfo.getType(), id), null);
     }
 
-	public final Long save() {
+	@CallSuper
+	public Long save() {
 		final SQLiteDatabase db = Cache.openDatabase();
 		final ContentValues values = new ContentValues();
 
